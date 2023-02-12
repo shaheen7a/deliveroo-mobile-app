@@ -19,28 +19,15 @@ const FeaturedRow = ({ title, description, id }) => {
         showsHorizontalScrollIndicator={false}
         className="pt-4"
       >
-        {/* <RestaurantCard
-          key={restaurant._id}
-          id={restaurant._id}
-          imgUrl={restaurant.image}
-          title={restaurant.name}
-          rating={restaurant.rating}
-          genre={restaurant.type?.name}
-          address={restaurant.address}
-          short_description={restaurant.short_description}
-          dishes={restaurant.dishes}
-          long={restaurant.long}
-          lat={restaurant.lat}
-        /> */}
         <RestaurantCard
           id={1}
           imgUrl="https://links.papareact.com/gn7"
-          title="Yo Sushi"
+          title="KFC"
           rating={4.5}
-          genre="Japan"
-          address="Damascus"
-          short_description="Test description"
-          dishes={[]}
+          genre="USA"
+          address="NewYork"
+          short_description="These restaurants usually offer a variety of meats, including chicken, beef, and lamb, as well as vegetarian options, and they typically have a menu that includes shawarma sandwiches, platters, salads, and sides such as hummus, baba ganoush, and rice."
+          dishes={["Chicken", "Rice", "Indomie"]}
           long={20}
           lat={0}
         />
