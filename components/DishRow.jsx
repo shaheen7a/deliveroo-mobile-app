@@ -1,7 +1,7 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import { useRoute } from '@react-navigation/native';
-import Currency from 'react-currency-formatter';
+// import Currency from 'react-currency-formatter';
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -41,7 +41,8 @@ const DishRow = ({ id, name, description, price, image }) => {
             <Text className="text-lg mb-1">{name}</Text>
             <Text className="text-gray-400">{description} </Text>
             <Text className="text-gray-400 mt-2">
-              <Currency quantity={price} currency="USD" />
+              {/* <Currency quantity={price} currency="USD" /> */}
+              <Text>${price}</Text>
             </Text>
           </View>
           <View>

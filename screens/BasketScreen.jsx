@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import Currency from "react-currency-formatter";
+// import Currency from "react-currency-formatter";
 import {
   Image,
   SafeAreaView,
@@ -77,7 +77,8 @@ export default function BasketScreen() {
               />
               <Text className="flex-1">{items[0]?.name}</Text>
               <Text className="text-gray-600">
-                <Currency quantity={items[0]?.price} currency="USD" />
+                <Text>$ {items[0]?.price}</Text>
+                {/* <Currency quantity={items[0]?.price} currency="USD" /> */}
               </Text>
               <TouchableOpacity>
                 <Text
@@ -94,19 +95,22 @@ export default function BasketScreen() {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">SubTotal</Text>
             <Text className="text-gray-400">
-              <Currency quantity={basketTotal} currency="USD" />
+              <Text>$ {basketTotal}</Text>
+              {/* <Currency quantity={basketTotal} currency="USD" /> */}
             </Text>
           </View>
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Delivery Fee</Text>
             <Text className="text-gray-400">
-              <Currency quantity={2.99} currency="USD" />
+              <Text>$ 3</Text>
+              {/* <Currency quantity={2.99} currency="USD" /> */}
             </Text>
           </View>
           <View className="flex-row justify-between">
             <Text>Order Total</Text>
             <Text className="font-extrabold">
-              <Currency quantity={basketTotal + 2.99} currency="USD" />
+              <Text>$ {basketTotal + 3}</Text>
+              {/* <Currency quantity={basketTotal + 2.99} currency="USD" /> */}
             </Text>
           </View>
           <TouchableOpacity
