@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRoute } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { useLayoutEffect } from 'react';
@@ -12,9 +12,12 @@ import {
 
 } from 'react-native-heroicons/outline';
 import DishRow from '../components/DishRow';
+import { useDispatch } from 'react-redux';
+import BasketIcon from '../components/BasketIcon';
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const {
     params: {
@@ -31,6 +34,23 @@ const RestaurantScreen = () => {
     },
   } = useRoute();
 
+  // useEffect(() => {
+  //   dispatch(
+  //     setRestaurant({
+  //       id,
+  //       imgUrl,
+  //       title,
+  //       rating,
+  //       genre,
+  //       address,
+  //       short_description,
+  //       dishes,
+  //       long,
+  //       lat,
+  //     })
+  //   );
+  // }, []);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -40,7 +60,7 @@ const RestaurantScreen = () => {
 
   return (
     <>
-      {/* <BasketIcon /> */}
+      <BasketIcon />
       <ScrollView>
         <View className="relative">
           <Image
@@ -90,27 +110,16 @@ const RestaurantScreen = () => {
         </View>
         <View className="pb-36">
           <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
-
-          <DishRow
-            name="Dish Name"
-            description="Description is here"
-            price={50}
-            image="https://picsum.photos/200"
-          />
-
-          <DishRow
-            name="Dish Name"
-            description="Description is here"
-            price={50}
-            image="https://picsum.photos/200"
-          />
-
-          <DishRow
-            name="Dish Name"
-            description="Description is here"
-            price={50}
-            image="https://picsum.photos/200"
-          />
+          {dishes.map((dish) => (
+            <DishRow
+              key={dish.id}
+              id={dish.id}
+              name={dish.name}
+              description={dish.description}
+              price={dish.price}
+              image={dish.img}
+            />
+          ))}
 
         </View>
       </ScrollView>
