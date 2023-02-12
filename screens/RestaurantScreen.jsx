@@ -14,6 +14,7 @@ import {
 import DishRow from '../components/DishRow';
 import { useDispatch } from 'react-redux';
 import BasketIcon from '../components/BasketIcon';
+import { setRestaurant } from '../features/restaurantSlice';
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -34,22 +35,22 @@ const RestaurantScreen = () => {
     },
   } = useRoute();
 
-  // useEffect(() => {
-  //   dispatch(
-  //     setRestaurant({
-  //       id,
-  //       imgUrl,
-  //       title,
-  //       rating,
-  //       genre,
-  //       address,
-  //       short_description,
-  //       dishes,
-  //       long,
-  //       lat,
-  //     })
-  //   );
-  // }, []);
+  useEffect(() => {
+    dispatch(
+      setRestaurant({
+        id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        short_description,
+        dishes,
+        long,
+        lat,
+      })
+    );
+  }, []);
 
   useLayoutEffect(() => {
     navigation.setOptions({
